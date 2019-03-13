@@ -1,0 +1,50 @@
+{% include 'nav.html' %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<div class="main">
+{% block content %}
+  <!-- {% for fi in fis_cat %}
+    <a href="{{ url_for('showFilms',filid=fi.id)}}">{{fi.name}}</a><br>
+    {% endfor %} -->
+   
+
+	<!--<div class="text-center">
+		<!-- <h1>Welcome to Film Store</h1> --
+		<img style="width: 750px; height: 400px; margin: 0; padding: 0; margin-top: 50px" src="https://s3.amazonaws.com/tinycards/image/d70a26c3d1df899bc00d6fe768c8f8a3">
+	</div>-->
+	<div class="w3-content w3-section" style="max-width:500px">
+	<center>
+	<h1>Welcome to Film Store</h1>
+
+  <img class="mySlides w3-animate-fading" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6w2r0wRWfryqCyXxncqIcCMqDQTHGozvvtFXTwqpeKbKth9pO" style="width: 750px; height: 500px; margin: 0; padding:10px; margin-top: 50px;margin-right:100px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="
+http://filmsdivision.org/wp-content/uploads/2017/01/Web-Poster-02-copy-1280x500.jpg" style="width: 750px; height: 500px; margin: 0; padding:10px; margin-top: 50px;margin-right:100px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpK4lQIkOncCC9ReiZCJ7UydQWiEBzq1L1X5227Wc9KL_eHpLR
+" style="width: 750px; height: 500px; margin: 0; padding:10px; margin-top: 50px;margin-right:100px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRJcdQbCB58ZPsvQQuxDG78ghl1AXg1pe63gA2huwOk2YX8uhb" style="width: 750px; height: 500px; margin: 0; padding:10px; margin-top: 50px;margin-right:100px;border-radius:40px">
+  </center>
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 3000);    
+}
+</script>
+
+
+    
+{% endblock content %}
+</div>

@@ -1,0 +1,22 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+    
+
+	<div class="">
+		<div style="width: 500px;">
+			
+		
+			<div class="panel panel-info" style="margin: 20px;">
+				<div class="panel-heading">ADD FILM CATEGORY NAME:</div>
+				<div class="panel-body">
+					<form class="form-inline" action="{{ url_for('addFilmName')}}" method="POST">
+						  <label for="email" class="mr-sm-4">Enter Film Category Name:</label>
+						  <input type="text" class="form-control mb-4 mr-sm-4" name="name" placeholder="Enter Film Category Name" required>
+						  <input type="submit" class="btn btn-info" value="Add Category">
+					</form>
+				</div>
+			</div>	
+		</div>	
+	</div>
+{% endblock content %}

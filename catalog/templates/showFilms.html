@@ -1,0 +1,47 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	{% endif %}	    
+{% endwith %}
+{% if 'username' in session %}
+<button type="button" class="btn btn-warning" style="margin: 5px 0px 5px 25px;"><a href="{{url_for('addFilmDetails',finame=fis.name)}}" style="text-decoration: none;"><strong>Add New Film</strong></a></button>
+
+{% endif %}
+<div class="row" style="margin: 10px;">
+{% for fie in fies %}
+
+	<div class="col-sm-4 text-center">
+		<div class="panel panel-primary" style="background-color:tomato;border:none">
+			<div class="panel-heading" style="background-color:#330080;border-radius:30px">
+				<h4>{{ fie.moviename }}</h4>
+			</div>
+			<div class="panel-body text-center" style="background-color:#e0ccff;border-radius:30px">
+				<table>
+					<tr><th>MOVIENAME</th><td>:</td><td><h5>{{ fie.moviename }}</h5></td></tr>
+					<tr><th>YEAR</th><td>:</td><td><h5>{{ fie.year }}</h5></td></tr>
+					<tr><th>RATING</th><td>:</td><td><h5>{{ fie.rating }}</h5></td></tr>
+					<tr><th>ACTION</th><td>:</td><td><h5>{{ fie.action }}</h5></td></tr>
+					<tr><th>BUDGET</th><td>:</td><td><h5>{{ fie.budget }}</h5></td></tr>
+				</table>
+			</div>
+			{% if 'username' in session %}
+			<div class="panel-footer" style="border-radius:30px;background-color:#4dd2ff">
+					<button type="button" class="btn btn-info"style="background-color:#004d1a"><a href="{{ url_for('editFilm',filid=fis.id,fiename=fie.moviename) }}"style="text-decoration: none;color:white;">EDIT</a></button>
+					<button type="button" class="btn btn-danger" style="background-color:#990000"><a href="{{ url_for('deleteFilm',filid=fis.id,fiename=fie.moviename)}}"style="text-decoration: none;color:white;">DELETE</a></button>
+			</div>
+			{% endif %}	
+			
+		</div>
+	</div>
+{% endfor %}
+</div>
+{% endblock content %}
+</div>
